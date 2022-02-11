@@ -1,0 +1,226 @@
+﻿@model IEnumerable<MystaffTool.Models.DataRes>
+
+@{
+    ViewData["Title"] = "User Management";
+
+}
+            <div class="container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>User Management</h3>
+                        </div>
+                        <div class="col-6">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">                                       <i data-feather="home"></i></a></li>
+                                <li class="breadcrumb-item">Users</li>
+                                <li class="breadcrumb-item active">User Management</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Container-fluid starts-->
+            <div class="container-fluid">
+                <div class="edit-profile">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header ">
+                                    <span class="text-end ">
+                                        <button class="btn btn-outline-secondary  btn-air-primary" type="button"><i class="fa fa-download"></i> Export</button>
+                                        <button class="btn btn-outline-primary  btn-air-primary" type="button"><i class="fa fa-upload"></i> Import</button>   <button class="btn btn-primary  btn-air-primary" type="button" data-bs-toggle="modal" data-bs-target="#adduser"><i class="fa fa-user-plus"></i> Add User</button>
+                                    </span>
+                                    <!-- Add model-->
+                                    <div class="modal fade" id="adduser" tabindex="-1" role="dialog" aria-labelledby="adduser" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Add New User</h5>
+                                                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form class="form-space theme-form ">
+                                                        <div class="row">
+                                                            <div class="col-4">
+                                                                <label class="col-form-label pt-0" for="fname">First Name</label>
+                                                                <input class="form-control" type="text" placeholder="eg John">
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <label class="col-form-label pt-0" for="lname">Last Name</label>
+                                                                <input class="form-control" type="text" name="text" placeholder="eg Doe">
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <label class="col-form-label pt-0" for="email">Email </label>
+                                                                <input class="form-control" type="text" name="text" placeholder="eg jdoe@softnet.co.tz">
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-4">
+                                                                <label class="col-form-label pt-0" for="phone">Phone</label>
+                                                                <input class="form-control" type="text" placeholder="eg 255 657899089">
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <label class="col-form-label pt-0" for="branch">Branch</label>
+                                                                <select class="js-example-basic-single col-sm-12">
+
+                                                                    <option value="AL">Arusha</option>
+                                                                    <option value="WY">Bagamoyo</option>
+
+
+                                                                    <option value="WY">Chato</option>
+                                                                    <option value="WY">Dodoma</option>
+                                                                    <option value="WY">Geita</option>
+
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-4">
+                                                                <label class="col-form-label pt-0" for="role">Role </label>
+                                                                <select class="js-example-basic-single col-sm-12">
+
+                                                                    <option value="AL">Admin</option>
+                                                                    <option value="WY">Accountant</option>
+
+
+                                                                    <option value="WY">Branch Manager</option>
+                                                                    <option value="WY">UIN Generator</option>
+
+
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button class="btn btn-danger btn-air-danger" type="button" data-bs-dismiss="modal">Cancel</button>
+                                                    <button class="btn btn-primary btn-air-primary" type="button">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End of Add model-->
+                                </div>
+                                <div class="table-responsive add-project">
+                                    <table class="table card-table table-vcenter text-nowrap">
+
+                                        <tr>
+                                            <th>First Name</th>
+                                            <th>Middle Name</th>
+                                            <th>Last Name</th>
+                                            <th>Email</th>
+                                            <th>Staff Number</th>
+                                            <th>Gender</th>
+                                            <th>Rank</th>
+                                            <th>Status Name</th>
+                                        </tr>
+
+                                        @foreach (var dt in Model)
+                                        {
+                                    <tr>
+                                        <td>@dt.first_name</td>
+                                        <td>@dt.middle_name</td>
+                                        <td>@dt.last_name</td>
+                                        <td>@dt.email</td>
+                                        <td>@dt.staff_number</td>
+                                        <td>@dt.gender</td>
+                                        <td>@dt.rank</td>
+                                        <td>@dt.status_name</td>
+                                    </tr>
+                                        }
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Container-fluid Ends-->
+        <!-- Edit model-->
+        <div class="modal fade" id="edituser" tabindex="-1" role="dialog" aria-labelledby="edituser" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit User</h5>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-space theme-form ">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="col-form-label pt-0" for="fname">First Name</label>
+                                    <input class="form-control" type="text" placeholder="eg John">
+                                </div>
+                                <div class="col-4">
+                                    <label class="col-form-label pt-0" for="lname">Last Name</label>
+                                    <input class="form-control" type="text" name="text" placeholder="eg Doe">
+                                </div>
+                                <div class="col-4">
+                                    <label class="col-form-label pt-0" for="email">Email </label>
+                                    <input class="form-control" type="text" name="text" placeholder="eg jdoe@softnet.co.tz">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <label class="col-form-label pt-0" for="phone">Phone</label>
+                                    <input class="form-control" type="text" placeholder="eg 255 657899089">
+                                </div>
+                                <div class="col-4">
+                                    <label class="col-form-label pt-0" for="branch">Branch</label>
+                                    <select class="js-example-basic-single col-sm-12">
+
+                                        <option value="AL">Arusha</option>
+                                        <option value="WY">Bagamoyo</option>
+
+
+                                        <option value="WY">Chato</option>
+                                        <option value="WY">Dodoma</option>
+                                        <option value="WY">Geita</option>
+
+                                    </select>
+                                </div>
+                                <div class="col-4">
+                                    <label class="col-form-label pt-0" for="role">Role </label>
+                                    <select class="js-example-basic-single col-sm-12">
+
+                                        <option value="AL">Admin</option>
+                                        <option value="WY">Accountant</option>
+
+
+                                        <option value="WY">Branch Manager</option>
+                                        <option value="WY">UIN Generator</option>
+
+
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger btn-air-danger" type="button" data-bs-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary btn-air-primary" type="button">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Edit model-->
+        <!-- Deactivate model-->
+        <div class="modal fade" id="deactivateuser" tabindex="-1" role="dialog" aria-labelledby="deactivateuser" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Deactivate Salim Kambangwa</h5>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to deactivate Salim Kambangwa ?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-danger btn-air-danger" type="button" data-bs-dismiss="modal">No</button>
+                        <button class="btn btn-primary btn-air-primary" type="button">Yes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
